@@ -1,6 +1,6 @@
-# Solo Project
+# Food Ordering Program
 
-Program requirements:
+#### Program's User Story:
 
 > As a customer  
 > So that I can check if I want to order something  
@@ -14,7 +14,7 @@ Program requirements:
 > So that I can verify that my order is correct  
 > I would like to see an itemised receipt with a grand total.
 
-The `twilio-ruby` gem is used to implement this next requirement. Doubles & mocking is used in the 
+The `twilio-ruby` gem is used to implement this next function. Doubles & mocking is used in the 
 testing process.
 
 > As a customer  
