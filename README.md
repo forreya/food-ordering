@@ -1,6 +1,6 @@
 # Food Ordering Program
 
-#### Program's User Story:
+#### User Story & Program Functions: 
 
 > As a customer  
 > So that I can check if I want to order something  
@@ -14,8 +14,8 @@
 > So that I can verify that my order is correct  
 > I would like to see an itemised receipt with a grand total.
 
-The `twilio-ruby` gem is used to implement this next function. Doubles & mocking is used in the 
-testing process.
+The `twilio-ruby` gem is used to implement this next function. Doubles are used in the 
+testing process when implementing mocking.
 
 > As a customer  
 > So that I am reassured that my order will be delivered on time  
