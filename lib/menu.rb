@@ -20,7 +20,7 @@ class Menu
   def add_to_selection(dish)
     @selection.push(dish)
   end
-
+  
   def selection_data
     @selection
   end

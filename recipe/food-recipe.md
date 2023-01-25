@@ -35,7 +35,7 @@ Diagram made using asciiflow.com:
           │- add_to_cart(dish,menu)            │
           │- view_cart                         │
           │- order                             │
-          │                                    │
+          │- delivery_time                     │
           │                                    │
           │                                    │
           └────────────────────────────────────┘
@@ -73,6 +73,15 @@ class Cart
 
     def view_cart
         # return the cart array
+    end
+
+    def order
+        # print out successful order message along with expected delivery time if there are items in the cart (using 'calculate_delivery_time' method)
+        # if cart is empty, print message telling user cart is empty
+    end
+
+    def delivery_time
+        # adds 40 minutes to current server time to return the expected delivery time in a nicely formatted string
     end
 end
 
@@ -121,12 +130,12 @@ end
 
 # Menu x Dish
 
-# 1
+# 1 Adds 2 dishes to menu and displays full selection
 menu = Menu.new
 dish1 = Dish.new("chicken rice", 20)
 dish2 = Dish.new("char siew pao", 3)
-menu.add_to_selection(dish1)
-menu.add_to_selection(dish2)
+menu.add_to_selection(dish1, menu)
+menu.add_to_selection(dish2, menu)
 menu.view_selection # => 
 #   "
 #     Our food selection:
@@ -136,15 +145,15 @@ menu.view_selection # =>
 
 # Cart x Menu x Dish
 
-# 1
+# 1 Adds 2 dishes from selection to the cart and displays cart
 menu = Menu.new
 cart = Cart.new
 dish1 = Dish.new("chicken rice", 20)
 dish2 = Dish.new("char siew pao", 3)
 menu.add_to_selection(dish1)
 menu.add_to_selection(dish2)
-cart.add_to_cart(dish1)
-cart.add_to_cart(dish2)
+cart.add_to_cart(dish1, menu)
+cart.add_to_cart(dish2, menu)
 cart.view_cart # => 
 #   "
 #     Your cart:
@@ -152,30 +161,56 @@ cart.view_cart # =>
 #     2. Char Siew Pao - RM3
 #   "
 
+# 2 Tries to add a dish that is not on the menu to the cart
+menu = Menu.new
+cart = Cart.new
+dish1 = Dish.new("chicken rice", 20)
+dish2 = Dish.new("char siew pao", 3)
+menu.add_to_selection(dish1, menu)
+menu.add_to_selection(dish2, menu)
+dish3 = Dish.new("siew mai", 2)
+cart.add_to_cart(dish3, menu) # => "This dish is not on the menu."
+
+# 3 Adds 2 dishes from the menu to the cart and orders the food, prints a message informing the user of the delivery time
+menu = Menu.new
+cart = Cart.new
+dish1 = Dish.new("chicken rice", 20)
+dish2 = Dish.new("char siew pao", 3)
+menu.add_to_selection(dish1, menu)
+menu.add_to_selection(dish2, menu)
+cart.add_to_cart(dish1, menu)
+cart.add_to_cart(dish2, menu)
+cart.order # => Thank you! Your order was placed and will be delivered before 14:31 (assuming current local time is 13:51)
+
 ```
 
 ## 4. Create Examples as Unit Tests
 
 ```ruby
 
-# Dish
+# Dish 
 
-# 1
+# 1 Returns name and price of dish
 dish1 = Dish.new("chicken rice", 20)
 dish1.name # => "Chicken Rice"
 dish1.price # => "RM 20"
 
 # Menu
 
-# 1
+# 1 Tries to view empty menu selection
 menu = Menu.new
-menu.selection # => "Our food selection is currently empty."
+menu.view_selection # => "Our food selection is currently empty."
 
 # Cart
 
-# 1
+# 1 Tries to display empty cart
 cart = Cart.new
 cart.view_cart # => "Your cart is currently empty."
+
+# 2 Tries to order food but the cart is empty
+cart = Cart.new
+cart.order # => "Order failed. Your cart is empty."
+
 ```
 
 ## 5. Implement the Behaviour
