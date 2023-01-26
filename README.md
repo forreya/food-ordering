@@ -24,5 +24,5 @@ testing process when implementing mocking.
 
 #### Extra Info:
 
-- The **'food_app'** file is used to test run the entire program manually.
-- To test the program using pre-coded tests (created based on user's requirements), run **'rspec'** in the main directory.
+- The **'food_app.rb'** file is used to test run the entire program manually.
+- To test the program using pre-coded tests (created based on user's requirements), type **'rspec'** in the terminal while in the main directory.
