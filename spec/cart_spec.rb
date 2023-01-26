@@ -5,10 +5,15 @@ describe Cart do
   before(:each) do
     @terminal = double(:terminal)
     @fake_requester = double(:requester)
+    @twilio_requester = double(:twilio_requester)
+    @account_sid = '123456789'
+    @auth_token = '987654321'
+    @fake_number = '+446222949749'
+
     @dish1 = double(:dish, name: "Chicken Rice", price: 20)
     @dish2 = double(:dish, name: "Char Siew Pao", price: 3)
     @menu = double(:menu, selection_data: [@dish1, @dish2])
-    @cart = Cart.new(@terminal, @fake_requester)
+    @cart = Cart.new(@terminal, @fake_requester, @twilio_requester, @account_sid, @auth_token, @fake_number)
   end
 
   it "returns an empty cart" do
