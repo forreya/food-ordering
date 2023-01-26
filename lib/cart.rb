@@ -1,6 +1,9 @@
 
 require 'date'
 require 'json'
+require 'rubygems' 
+require 'twilio-ruby' 
+# require 'twilio_info'
 
 class Cart
   def initialize(terminal, requester)
@@ -33,7 +36,16 @@ class Cart
     if @cart.empty?
       @terminal.puts("Order failed. Your cart is empty.")
     else
-      @terminal.puts "Thank you! Your order was placed and will be delivered before #{delivery_time}."
+      message_body = "Thank you! Your order was placed and will be delivered before #{delivery_time}."
+      @client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN) # ACCOUNT_SID & AUTH_TOKEN are variables accessed from untracked files
+
+      message = @client.messages.create( 
+        body: message_body,  
+        messaging_service_sid: 'MG58ce52ba6f5a86cffcdd80b38fadef53',      
+        to: MY_NUMBER,
+      ) 
+
+      @terminal.puts message.body
     end
   end
 
@@ -50,5 +62,6 @@ class Cart
     end
     return "#{hour}:#{min}"
   end
+  
 end
 

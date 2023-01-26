@@ -76,7 +76,7 @@ class Cart
     end
 
     def order
-        # print out successful order message along with expected delivery time if there are items in the cart (using 'calculate_delivery_time' method)
+        # texts the successful order message along with expected delivery time if there are items in the cart (using 'calculate_delivery_time' method)
         # if cart is empty, print message telling user cart is empty
     end
 
@@ -181,6 +181,17 @@ menu.add_to_selection(dish2, menu)
 cart.add_to_cart(dish1, menu)
 cart.add_to_cart(dish2, menu)
 cart.order # => Thank you! Your order was placed and will be delivered before 14:31 (assuming current local time is 13:51)
+
+# 4 Adds 2 dishes from the menu to the cart and orders the food, prints a message informing the user of the delivery time
+menu = Menu.new
+cart = Cart.new
+dish1 = Dish.new("chicken rice", 20)
+dish2 = Dish.new("char siew pao", 3)
+menu.add_to_selection(dish1, menu)
+menu.add_to_selection(dish2, menu)
+cart.add_to_cart(dish1, menu)
+cart.add_to_cart(dish2, menu)
+cart.order # => Thank you! Your order was placed and will be delivered before 15:29 (assuming current local time is 14:49)
 
 ```
 
