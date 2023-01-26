@@ -21,3 +21,8 @@ testing process when implementing mocking.
 > So that I am reassured that my order will be delivered on time  
 > I would like to receive a text such as "Thank you! Your order was placed and
 > will be delivered before 18:52" after I have ordered.
+
+#### Extra Info:
+
+- The **'food_app'** file is used to test run the entire program manually.
+- To test the program using pre-coded tests (created based on user's requirements), run **'rspec'** in the main directory.
