@@ -8,6 +8,8 @@ require 'twilio_info'
 class Cart
   def initialize(terminal, requester, twilio_requester, account_sid, auth_token, my_number)
     @cart = []
+
+    # the following variables were made for testing purposes
     @terminal = terminal
     @requester = requester
     @twilio_requester = twilio_requester
@@ -42,7 +44,8 @@ class Cart
     else
       message_body = "Thank you! Your order was placed and will be delivered before #{delivery_time}."
       # to use twilio API, set 'twilio_requester' to Twilio::REST::Client
-      @client = @twilio_requester.new(@account_sid, @auth_token) # ACCOUNT_SID & AUTH_TOKEN are variables accessed from untracked files
+      # @account_sid & @auth_token are variables that represent my twilio profile information
+      @client = @twilio_requester.new(@account_sid, @auth_token) 
 
       message = @client.messages.create( 
         body: message_body,  
