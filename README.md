@@ -1,5 +1,7 @@
 # Food Ordering System
 
+A ruby program that allows the user to see a menu with prices, select from the available dishes, and see an itemised receipt with a grand total price. The expected time of delivery will be texted to the user after an order is successful (using twilio-ruby).
+
 #### User Story & Program Functions: 
 
 > As a customer  
@@ -22,7 +24,18 @@ testing process when implementing mocking.
 > I would like to receive a text such as "Thank you! Your order was placed and
 > will be delivered before 18:52" after I have ordered.
 
-#### Extra Info:
+## How to use:
 
-- The **'food_app.rb'** file is used to test run the entire program manually.
-- To test the program using pre-coded tests (created based on user's requirements), type **'rspec'** in the terminal while in the main directory.
+### To run the entire program
+
+```
+$ cd food-ordering-system
+$ ruby food_app.rb
+```
+
+### To test the program using pre-coded tests
+
+```
+$ cd food-ordering-system
+$ rspec
+```
