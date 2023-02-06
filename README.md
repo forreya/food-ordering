@@ -1,6 +1,6 @@
 # Food Ordering System
 
-A ruby program that allows the user to see a menu with prices, select from the available dishes, and see an itemised receipt with a grand total price. The expected time of delivery will be texted to the user after an order is successful (using twilio-ruby).
+_A ruby program that allows the user to see a menu with prices, select from the available dishes, and see an itemised receipt with a grand total price. The expected time of delivery will be texted to the user after an order is successful (using twilio-ruby)._
 
 #### User Story & Program Functions: 
 
