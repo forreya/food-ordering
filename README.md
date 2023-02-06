@@ -33,7 +33,7 @@ $ cd food-ordering-system
 $ ruby food_app.rb
 ```
 
-### To test the program using pre-coded tests
+### To test the program using RSpec
 
 ```
 $ cd food-ordering-system
